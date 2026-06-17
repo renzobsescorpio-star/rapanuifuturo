@@ -1,0 +1,81 @@
+body{
+    margin:0;
+    display:flex;
+    font-family:Arial,sans-serif;
+    background:#eef5ff;
+}
+
+#sidebar{
+    width:280px;
+    min-height:100vh;
+    background:#0f172a;
+    color:white;
+    padding:20px;
+}
+
+#sidebar h1{
+    text-align:center;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+#contenido{
+    flex:1;
+    padding:30px;
+}
+
+.panel{
+    display:block;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.intro{
+    display:flex;
+    gap:30px;
+    align-items:center;
+}
+
+.imagen{
+    width:350px;
+    border-radius:15px;
+}
+
+#seaSlider{
+    width:100%;
+    margin-top:15px;
+}
+
+#seaRise{
+    color:#1565c0;
+}
+
+#projectionText{
+    margin-top:15px;
+    padding:15px;
+    background:#eef6ff;
+    border-left:5px solid #1565c0;
+    border-radius:8px;
+}
+
+.simBtn{
+    background:#1565c0;
+    color:white;
+}
+
+ul{
+    line-height:1.8;
+}

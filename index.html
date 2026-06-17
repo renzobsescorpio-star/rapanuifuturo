@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rapa Nui Futuro</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="sidebar">
+
+    <h1>🗿 Rapa Nui Futuro</h1>
+
+    <button onclick="mostrar('mar')">
+        🌊 Nivel del Mar
+    </button>
+
+</div>
+
+<div id="contenido">
+
+    <div id="mar" class="panel">
+
+        <div class="card">
+
+            <h1>🌊 Nivel del Mar en Rapa Nui</h1>
+
+            <div class="intro">
+
+                <div>
+
+                    <p>
+                    El aumento del nivel medio del mar constituye una de las principales consecuencias del cambio climático global.
+                    Este fenómeno es provocado por la expansión térmica de los océanos y el derretimiento de glaciares y capas de hielo.
+                    Debido a su condición insular, Rapa Nui presenta una elevada vulnerabilidad frente a estos cambios.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>📊 Estadísticas y Factores</h2>
+
+            <label>Seleccione un año:</label>
+
+            <input
+            type="range"
+            id="seaSlider"
+            min="2025"
+            max="2100"
+            step="5"
+            value="2025">
+
+            <h3 id="yearDisplay">
+                Año: 2025
+            </h3>
+
+            <h2 id="seaRise">
+                Aumento estimado: 0 cm
+            </h2>
+
+            <div id="projectionText">
+
+                Impacto esperado bajo.
+
+            </div>
+
+            <h3>Factores que contribuyen</h3>
+
+            <ul>
+
+                <li>🌡️ Expansión térmica del océano</li>
+
+                <li>🧊 Derretimiento de glaciares</li>
+
+                <li>❄️ Pérdida de hielo en Groenlandia</li>
+
+                <li>🐧 Pérdida de hielo en la Antártica</li>
+
+                <li>🌊 Cambios en corrientes oceánicas</li>
+
+            </ul>
+
+        </div>
+
+        <div class="card">
+
+            <h2>📈 Proyecciones del Proyecto</h2>
+
+            <p id="futureProjection">
+
+                Seleccione un año para visualizar la proyección.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>🌊 Simulador 3D</h2>
+
+            <p>
+            Próximamente se abrirá una visualización tridimensional de Rapa Nui con aumento progresivo del nivel del mar.
+            </p>
+
+            <button class="simBtn">
+                Abrir Simulador 3D
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>📚 Fuentes Científicas</h2>
+
+            <ul>
+
+                <li>IPCC → Escenarios climáticos globales.</li>
+
+                <li>NASA → Datos satelitales del nivel del mar.</li>
+
+                <li>NOAA → Proyecciones oceánicas.</li>
+
+                <li>Centro IDEAL → Investigación oceánica regional.</li>
+
+                <li>Ministerio del Medio Ambiente → Información nacional.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
