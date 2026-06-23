@@ -9,6 +9,8 @@
 
 <link rel="stylesheet" href="style.css">
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -18,14 +20,26 @@
     <h1>🗿 Rapa Nui Futuro</h1>
 
     <button onclick="mostrar('mar')">
-        🌊 Nivel del Mar
+        🌊 Océano y cambio climatico
+    </button>
+
+    <button onclick="mostrar('clima')">
+        🌡️ Cambio Climático
+    </button>
+
+    <button onclick="mostrar('impacto')">
+        🐢 Biodiversidad
+    </button>
+
+    <button onclick="mostrar('impacto')">
+        🌍 Impacto en la Comunidad
     </button>
 
 </div>
 
 <div id="contenido">
 
-    <div id="mar" class="panel">
+    <div id="mar" class="panel"> 
 
         <div class="card">
 
@@ -36,10 +50,11 @@
                 <div>
 
                     <p>
-                    El aumento del nivel medio del mar constituye una de las principales consecuencias del cambio climático global.
-                    Este fenómeno es provocado por la expansión térmica de los océanos y el derretimiento de glaciares y capas de hielo.
-                    Debido a su condición insular, Rapa Nui presenta una elevada vulnerabilidad frente a estos cambios.
-                    </p>
+                     Los océanos desempeñan un papel fundamental en la regulación del clima terrestre. Actualmente, el cambio climático está provocando modificaciones en la temperatura del océano, los patrones de viento, el oleaje y el nivel del mar. Estos cambios pueden generar importantes impactos ambientales, sociales y económicos en distintas regiones del mundo.
+  
+                     Debido a su condición insular y su ubicación en medio del océano Pacífico, Rapa Nui presenta una especial vulnerabilidad frente a estos fenómenos. Comprender cómo evoluciona el océano y cómo podría cambiar en el futuro es fundamental para anticipar riesgos, proteger los ecosistemas y fortalecer la resiliencia de la isla frente al cambio climático.
+
+                    </p>    
 
                 </div>
 
@@ -49,60 +64,64 @@
 
         <div class="card">
 
-            <h2>📊 Estadísticas y Factores</h2>
+        <h2> 🌡️ Condiciones Actuales</h2>
+            <p> las siguientes variables permiten observar el estado actual del océano y la atmósfera en torno a Rapa Nui.</p>
+            <div class="condiciones">
+                <div class="dato">
+                    <h3>Temperatura del Océano</h3>
+                    <p id="tempMar">Cargando...</p>
+                </div>
 
-            <label>Seleccione un año:</label>
+                <div class="dato">
+                    <h3>oleaje</h3>
+                    <p id="oleaje">Cargando...</p>
+                </div>
 
-            <input
-            type="range"
-            id="seaSlider"
-            min="2025"
-            max="2100"
-            step="5"
-            value="2025">
+                <div class="dato">
+                    <h3>viento</h3>
+                    <p id="viento">Cargando...</p>
+                </div>
 
-            <h3 id="yearDisplay">
-                Año: 2025
-            </h3>
-
-            <h2 id="seaRise">
-                Aumento estimado: 0 cm
-            </h2>
-
-            <div id="projectionText">
-
-                Impacto esperado bajo.
-
+                <div class="dato">
+                    <h3>salinidad</h3>
+                    <p id="salinidad">Cargando...</p>
+                </div>
             </div>
-
-            <h3>Factores que contribuyen</h3>
-
-            <ul>
-
-                <li>🌡️ Expansión térmica del océano</li>
-
-                <li>🧊 Derretimiento de glaciares</li>
-
-                <li>❄️ Pérdida de hielo en Groenlandia</li>
-
-                <li>🐧 Pérdida de hielo en la Antártica</li>
-
-                <li>🌊 Cambios en corrientes oceánicas</li>
-
-            </ul>
-
         </div>
 
         <div class="card">
+            <h2>Estadisticas Interactivas</h2>
+            <p> explora como diferentes variables ambientales han cambiado desde el año 2000 y cómo podrían evolucionar hasta 2100.</p>
+            <label>Selecciona una variable</label>
+            <select id="variableSelect">
+            <option value="mar">Nivel del Mar</option>
 
-            <h2>📈 Proyecciones del Proyecto</h2>
+            <option value="temperatura">Temperatura del Océano</option>
+            
+            <option value="co2">CO₂ Atmosérico</option>
+            
 
-            <p id="futureProjection">
+            <option value="contaminacion">Contaminacion Marina</option>
 
-                Seleccione un año para visualizar la proyección.
+            </select>
 
-            </p>
+                <br><br>
 
+                <label>Seleciona Un Año</label>
+
+                <input
+                type="range"
+                id="yearSlider"
+                min="2000"
+                max="2100"
+                step="5"
+                value="2000">
+
+                <h3 id="selectedYear">
+                    año: 2000
+                </h3>
+
+                <canvas id="grafico"></canvas>
         </div>
 
         <div class="card">

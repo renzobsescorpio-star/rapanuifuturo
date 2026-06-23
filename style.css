@@ -78,4 +78,72 @@ button{
 
 ul{
     line-height:1.8;
+} 
+
+/* ---------------------------------celular--------------------------*/
+@media (max-width: 768px) {
+
+    body{
+        flex-direction: column;
+    }
+
+    #sidebar{
+        width: 100%;
+        min-height: auto;
+        padding: 15px;
+        text-align: center;
+    }
+
+    #contenido{
+        padding: 15px;
+    }
+
+    .intro{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .imagen{
+        width: 100%;
+    }
+
+    button{
+        font-size: 14px;
+    }
+
+    /*condiciones actuales*/
+    .condiciones{
+        flex-direction: column;
+    }
+}
+
+
+/* -----------------condiciones actuales----------------------------*/
+.condiciones{
+   display:flex;
+   gap:20px;
+   margin-top: 20px;
+   flex-wrap:wrap;
+}
+.dato{
+    flex:1;
+    min-width:200px;
+    background:#eef6ff;
+    padding:15px;
+    border-radius:12px;
+    text-align: center;
+}
+.dato h3{
+    margin-top:0;
+}
+
+#variableSelect{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+#grafico{
+    margin-top:20px;
 }
