@@ -109,7 +109,7 @@ const datos = {
 };
 
 const ctx =
-document.getElementById("grafico");
+document.getElementById("grafico"). getContext("2d");
 
 const grafico = new Chart(ctx, {
 
@@ -192,3 +192,247 @@ document
 );
 
 actualizarGrafico();
+
+/*------------ escena 3d ------------*/
+
+const abrirSimulador =
+document.getElementById("abrirSimulador");
+
+const cerrarSimulador =
+document.getElementById("cerrarSimulador");
+
+const simuladorPage =
+document.getElementById("simuladorPage");
+
+abrirSimulador.addEventListener("click",()=>{
+
+    simuladorPage.style.display = "block";
+
+    renderer.setSize(
+        contenedor.clientWidth,
+        contenedor.clientHeight
+    );
+
+    camara.aspect =
+        contenedor.clientWidth /
+        contenedor.clientHeight;
+
+    camara.updateProjectionMatrix();
+
+    simuladorPage.scrollIntoView({
+        behavior:"smooth"
+    });
+
+});
+
+cerrarSimulador.addEventListener("click",()=>{
+
+    simuladorPage.style.display = "none";
+
+});
+
+// =========================
+// SIMULADOR NIVEL DEL MAR
+// =========================
+
+const slider3D =
+document.getElementById("simuladorSlider");
+
+const anio3D =
+document.getElementById("simuladorAnio");
+
+const nivel3D =
+document.getElementById("simuladorNivel");
+
+const riesgo =
+document.getElementById("riesgoCosta");
+
+slider3D.addEventListener("input",()=>{
+
+    const anio =
+    parseInt(slider3D.value);
+
+    anio3D.innerHTML =
+    "Año: " + anio;
+
+    const aumento =
+    ((anio - 2000) / 100) * 65;
+
+    nivel3D.innerHTML =
+    "Aumento estimado: "
+    + aumento.toFixed(1)
+    + " cm";
+
+    mar.position.y =
+    (aumento / 65) * 3;
+
+if(aumento < 20){
+
+    riesgo.innerHTML =
+    "Riesgo costero: Bajo";
+
+}else if(aumento < 45){
+
+    riesgo.innerHTML =
+    "Riesgo costero: Medio";
+
+}else{
+
+    riesgo.innerHTML =
+    "Riesgo costero: Alto";
+
+}
+
+});
+
+// =========================
+// ESCENA 3D
+// =========================
+
+const escena = new THREE.Scene();
+
+escena.background =
+new THREE.Color(0x87ceeb);
+
+const contenedor =
+document.getElementById("escena3D");
+
+const camara =
+new THREE.PerspectiveCamera(
+75,
+contenedor.clientWidth /
+contenedor.clientHeight,
+0.1,
+1000
+);
+
+const renderer =
+new THREE.WebGLRenderer({
+antialias:true
+});
+
+renderer.setSize(
+contenedor.clientWidth,
+contenedor.clientHeight
+);
+
+contenedor.appendChild(
+renderer.domElement
+);
+
+const luz =
+new THREE.DirectionalLight(
+0xffffff,
+1
+);
+
+luz.position.set(
+5,
+10,
+5
+);
+
+escena.add(luz);
+
+const luzAmbiente =
+new THREE.AmbientLight(
+0xffffff,
+0.6
+);
+
+escena.add(luzAmbiente);
+
+const marGeometry =
+new THREE.BoxGeometry(
+20,
+1,
+20
+);
+
+const marMaterial =
+new THREE.MeshPhongMaterial({
+color:0x3399ff,
+transparent:true,
+opacity:0.8
+});
+
+const mar =
+new THREE.Mesh(
+marGeometry,
+marMaterial
+);
+
+escena.add(mar);
+
+const playaGeometry =
+new THREE.CylinderGeometry(
+5.2,
+5.2,
+0.3,
+32
+);
+
+const playaMaterial =
+new THREE.MeshPhongMaterial({
+color:0xf4d28c
+});
+
+const playa =
+new THREE.Mesh(
+playaGeometry,
+playaMaterial
+);
+
+playa.position.y = 0.3;
+
+escena.add(playa);
+
+const islaGeometry =
+new THREE.CylinderGeometry(
+2,
+5,
+4,
+32
+);
+
+const islaMaterial =
+new THREE.MeshPhongMaterial({
+color:0x3d8b37
+});
+
+const isla =
+new THREE.Mesh(
+islaGeometry,
+islaMaterial
+);
+
+isla.position.y = 1.5;
+
+escena.add(isla);
+
+camara.position.set(
+10,
+8,
+10
+);
+
+camara.lookAt(
+0,
+0,
+0
+);
+
+function animar(){
+
+requestAnimationFrame(animar);
+
+isla.rotation.y += 0.003;
+
+renderer.render(
+escena,
+camara
+);
+
+}
+
+animar();

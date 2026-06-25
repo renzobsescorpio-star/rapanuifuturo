@@ -23,12 +23,12 @@
         🌊 Océano y cambio climatico
     </button>
 
-    <button onclick="mostrar('clima')">
-        🌡️ Cambio Climático
+     <button onclick="mostrar('biodiversidad')">
+        biodiversidad
     </button>
 
-    <button onclick="mostrar('impacto')">
-        🐢 Biodiversidad
+   <button onclick="mostrar('nose')">
+        nose
     </button>
 
     <button onclick="mostrar('impacto')">
@@ -43,7 +43,7 @@
 
         <div class="card">
 
-            <h1>🌊 Nivel del Mar en Rapa Nui</h1>
+            <h1>🌊Océano y cambio climatico </h1>
 
             <div class="intro">
 
@@ -126,33 +126,79 @@
 
         <div class="card">
 
-            <h2>🌊 Simulador 3D</h2>
+            <h2>🌊 Nivel del mar</h2>
+            <h3> Situación Actual</h3>
 
-            <p>
-            Próximamente se abrirá una visualización tridimensional de Rapa Nui con aumento progresivo del nivel del mar.
+            <p> el nivel del mar presenta una tendencia de aumento a nivel global. En Rapa Nui, su evolución es monitoriado para comprender posibles efectos sobre el entorno costero. 
+
             </p>
 
-            <button class="simBtn">
+            <button id ="abrirSimulador" class="simBtn">
                 Abrir Simulador 3D
             </button>
 
         </div>
 
+<div id="simuladorPage" style="display:none;">
+
+    <div class="factoresBox">
+        <h3>Factores que afectan el nivel del mar</h3>
+        <ul>
+            <li>Expansión térmica del océano.</li>
+            <li>Derretimiento de glaciares.</li>
+            <li>Hielo de Groenlandia.</li>
+            <li>Hielo Antártico.</li>
+            <li>Corrientes oceánicas.</li>
+        </ul>
+    </div>
+
+    <div id="escena3D"></div>
+
+    <h3 id="simuladorAnio">
+        Año: 2000
+    </h3>
+
+    <input
+        type="range"
+        id="simuladorSlider"
+        min="2000"
+        max="2100"
+        step="5"
+        value="2000">
+
+    <h2 id="simuladorNivel">
+        Aumento estimado: 0.0 cm
+    </h2>
+
+    <h3 id="riesgoCosta">
+    Riesgo costero: Bajo
+</h3>
+
+    <button id="cerrarSimulador" class="simBtn">
+        Cerrar simulador 3D
+    </button>
+
+</div>
+
+</div>
         <div class="card">
 
             <h2>📚 Fuentes Científicas</h2>
 
             <ul>
+                <li>Open-Mateo Marine API → Temperatura superficial del mar y altura de oleaje.</li>
 
-                <li>IPCC → Escenarios climáticos globales.</li>
+                <li>Open-Mateo Weather API → Velocidad del viento en tiempo real.</li>
 
-                <li>NASA → Datos satelitales del nivel del mar.</li>
+                <li>IPCC → Escenarios de cambio climático y aumento del nivel del mar.</li>
 
-                <li>NOAA → Proyecciones oceánicas.</li>
+                <li>NASA → Observaciones satelites de océanicas y clima.</li>
 
-                <li>Centro IDEAL → Investigación oceánica regional.</li>
+                <li>NOAA → Informción oceanográfica y climática global.</li>
 
-                <li>Ministerio del Medio Ambiente → Información nacional.</li>
+                <li>Centro IDEAL → Investigación oceánica y climática en chile.</li>
+
+                <li>Ministerio del Medio Ambiente → Información climática nacional.</li>
 
             </ul>
 
@@ -161,6 +207,7 @@
     </div>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
 <script src="script.js"></script>
 

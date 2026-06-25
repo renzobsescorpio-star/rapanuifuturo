@@ -147,3 +147,36 @@ ul{
 #grafico{
     margin-top:20px;
 }
+
+/* -----------------factores box----------------------------*/
+
+.factoresBox{
+    position: absolute;
+    top:20px;
+    right:20px;
+    width:250px;
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+#simuladorPage{
+    position: relative;
+    min-height: 800px;
+}
+#escena3D{
+    height: 500px;
+    background: #dbeafe;
+    border-radius: 15px;
+    margin-top: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 24px;
+}
+#simuladorSlider{
+    width:100%;
+    margin-top:20px;
+}
